@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Meal extends AbstractBaseEntity {
+    public static final String DELETE = "Mail.delete";
+    public static final String ALL_SORTED = "Meal.getAll";
+    public static final String GET_BETWEEN = "Meal.getBetween";
+    @Column(name = "date_time", columnDefinition = "timestamp default now()")
     private LocalDateTime dateTime;
 
     private String description;
