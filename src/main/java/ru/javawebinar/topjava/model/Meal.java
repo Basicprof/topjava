@@ -10,7 +10,7 @@ public class Meal extends AbstractBaseEntity {
     public static final String DELETE = "Mail.delete";
     public static final String ALL_SORTED = "Meal.getAll";
     public static final String GET_BETWEEN = "Meal.getBetween";
-    @Column(name = "date_time", columnDefinition = "timestamp default now()")
+    @Column(name = "date_time", nullable = false)
     @NotNull
     private LocalDateTime dateTime;
 
@@ -18,9 +18,12 @@ public class Meal extends AbstractBaseEntity {
 
     private int calories;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name= "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @NotNull
+
     private User user;
 
     public Meal() {
