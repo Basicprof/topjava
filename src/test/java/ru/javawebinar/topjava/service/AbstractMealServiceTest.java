@@ -22,6 +22,7 @@ public abstract class AbstractMealServiceTest extends AbstractServiceTest {
     protected MealService service;
     @Autowired
     private Environment environment;
+
     @Test
     public void delete() throws Exception {
         service.delete(MEAL1_ID, USER_ID);
@@ -95,8 +96,10 @@ public abstract class AbstractMealServiceTest extends AbstractServiceTest {
 
     @Test
     public void testValidation() throws Exception {
-        for (String profile : environment.getActiveProfiles()){
-            if(profile.contains("jdbc")){return;}
+        for (String profile : environment.getActiveProfiles()) {
+            if (profile.contains("jdbc")) {
+                return;
+            }
         }
         validateRootCause(() -> service.create(new Meal(null, of(2015, Month.JUNE, 1, 18, 0), "  ", 300), USER_ID), ConstraintViolationException.class);
         validateRootCause(() -> service.create(new Meal(null, null, "Description", 300), USER_ID), ConstraintViolationException.class);
