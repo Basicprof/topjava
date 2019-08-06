@@ -1,7 +1,9 @@
 function makeEditable() {
     $(".delete").click(function () {
+        debugger;
         deleteRow($(this).attr("id"));
     });
+    debugger;
 }
 
 function add() {
