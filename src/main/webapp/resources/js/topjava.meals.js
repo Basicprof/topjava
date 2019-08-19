@@ -32,7 +32,8 @@ $(function () {
         datatableOpts: {
             "columns": [
                 {
-                    "data": "dateTime"
+
+                    "data": "dateTimeUI"
                 },
                 {
                     "data": "description"
